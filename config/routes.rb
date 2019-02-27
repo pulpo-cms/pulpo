@@ -1,7 +1,7 @@
-Beehive::Engine.add_routes do
-  devise_for :users, path: :auth, class_name: 'Beehive::User', module: :devise
+Pulpo::Engine.add_routes do
+  devise_for :users, path: :auth, class_name: 'Pulpo::User', module: :devise
 
-  namespace :admin, path: Beehive.admin_path do
+  namespace :admin, path: Pulpo.admin_path do
     root to: 'dashboard#index'
 
     resources :media, path: :media
@@ -22,4 +22,4 @@ Beehive::Engine.add_routes do
   end
 end
 
-Beehive::Engine.draw_routes
+Pulpo::Engine.draw_routes

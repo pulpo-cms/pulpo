@@ -1,0 +1,9 @@
+<%= render 'prismo/shared/page_header', title: 'New user' do %>
+  <%= content_for :body do %>
+    <p>Edit user settings</p>
+  <% end %>
+<% end %>
+
+<div class="bh-page-content">
+  <%= render 'prismo/admin/users/form' %>
+</div>

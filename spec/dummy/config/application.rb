@@ -14,7 +14,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "beehive"
+require "pulpo"
 
 module Dummy
   class Application < Rails::Application

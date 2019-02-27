@@ -1,0 +1,23 @@
+<%= render 'prismo/shared/page_header', title: 'Settings' do %>
+  <%= content_for :body do %>
+    <p>General website settings</p>
+  <% end %>
+<% end %>
+
+<div class="bh-page-content">
+  <div class="card-group bh-nav-grid">
+    <%=
+      render 'prismo/shared/nav_grid_item', path: edit_admin_settings_general_path,
+                                             title: 'General',
+                                             text_icon: 'g',
+                                             text: 'General website settings'
+    %>
+
+    <%=
+      render 'prismo/shared/nav_grid_item', path: admin_users_path,
+                                             title: 'Users',
+                                             text_icon: 'u',
+                                             text: 'System users'
+    %>
+  </div>
+</div>

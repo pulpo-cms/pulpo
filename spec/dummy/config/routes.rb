@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Beehive::Engine => "/beehive"
+  mount Pulpo::Engine => "/pulpo"
 end

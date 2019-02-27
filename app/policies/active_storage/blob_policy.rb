@@ -1,5 +1,5 @@
 module ActiveStorage
-  class BlobPolicy < Beehive::ApplicationPolicy
+  class BlobPolicy < Pulpo::ApplicationPolicy
     def index?
       user.role?(:admin)
     end

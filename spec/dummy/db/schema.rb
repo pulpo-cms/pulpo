@@ -12,31 +12,31 @@
 
 ActiveRecord::Schema.define(version: 2018_11_03_215110) do
 
-  create_table "beehive_preferences", force: :cascade do |t|
+  create_table "pulpo_preferences", force: :cascade do |t|
     t.text "value"
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["key"], name: "index_beehive_preferences_on_key", unique: true
+    t.index ["key"], name: "index_pulpo_preferences_on_key", unique: true
   end
 
-  create_table "beehive_role_users", force: :cascade do |t|
+  create_table "pulpo_role_users", force: :cascade do |t|
     t.integer "role_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["role_id"], name: "index_beehive_role_users_on_role_id"
-    t.index ["user_id"], name: "index_beehive_role_users_on_user_id"
+    t.index ["role_id"], name: "index_pulpo_role_users_on_role_id"
+    t.index ["user_id"], name: "index_pulpo_role_users_on_user_id"
   end
 
-  create_table "beehive_roles", force: :cascade do |t|
+  create_table "pulpo_roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_beehive_roles_on_name", unique: true
+    t.index ["name"], name: "index_pulpo_roles_on_name", unique: true
   end
 
-  create_table "beehive_users", force: :cascade do |t|
+  create_table "pulpo_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 2018_11_03_215110) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_beehive_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_beehive_users_on_reset_password_token", unique: true
-    t.index ["unlock_token"], name: "index_beehive_users_on_unlock_token", unique: true
+    t.index ["email"], name: "index_pulpo_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_pulpo_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_pulpo_users_on_unlock_token", unique: true
   end
 
 end

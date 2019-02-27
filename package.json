@@ -1,5 +1,5 @@
 {
-  "name": "@beehivecms/core",
+  "name": "@pulpocms/core",
   "version": "1.0.0",
   "description": "Short description and motivation.",
   "main": "frontend/dist/index.js",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beehive-cms/beehive.git"
+    "url": "git+https://github.com/pulpo-cms/pulpo.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/beehive-cms/beehive/issues"
+    "url": "https://github.com/pulpo-cms/pulpo/issues"
   },
-  "homepage": "https://github.com/beehive-cms/beehive#readme",
+  "homepage": "https://github.com/pulpo-cms/pulpo#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "7",
