@@ -1,7 +1,7 @@
 <% action = @user.persisted? ? admin_user_path(@user) : admin_users_path %>
 
 <%= form_for @user, url: action, as: :user do |f| %>
-  <%= render 'prismo/shared/form_errors', resource: f.object %>
+  <%= render 'pulpo/shared/form_errors', resource: f.object %>
 
   <div class="form-section row">
     <div class="col-4">
