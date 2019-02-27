@@ -10,6 +10,7 @@ require 'loaf'
 require 'draper'
 require 'deface'
 require 'active_link_to'
+require 'inline_svg'
 
 module Pulpo
   class << self

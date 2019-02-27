@@ -9,10 +9,10 @@
 <% end %>
 
 <div class="bh-page-content">
-  <%= search_form_for @q, url: admin_users_path, data: { controller: 'search-form' } do |f| %>
+  <%= search_form_for @q, url: admin_users_path, class: 'bh-search-form', data: { controller: 'search-form' } do |f| %>
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <button type="button" class="btn btn-outline-secondary" data-action="click->search-form#toggleMoreFilters">
+        <button type="button" class="btn btn-outline-secondary bh-search-form-more" data-action="click->search-form#toggleMoreFilters">
           Filter
         </button>
       </div>
@@ -46,33 +46,55 @@
     </div>
   <% end %>
 
-  <table class="table table-hover">
-    <thead>
-      <th><%= sort_link(@q, :id) %></th>
-      <th><%= sort_link(@q, :email) %></th>
-      <th>Roles</th>
-      <th><%= sort_link(@q, :created_at) %></th>
-      <th></th>
-    </thead>
+  <% if @users.any? %>
+    <table class="table table-hover">
+      <thead>
+        <th><%= sort_link(@q, :id) %></th>
+        <th><%= sort_link(@q, :email) %></th>
+        <th>Roles</th>
+        <th><%= sort_link(@q, :created_at) %></th>
+        <th></th>
+      </thead>
 
-    <% @users.each do |user| %>
-      <tr>
-        <td class="text-muted">#<%= user.id %></td>
-        <td class="font-weight-bold"><%= user.email %></td>
-        <td>
-          <% user.roles.each do |role| %>
-            <span class="btn btn-tag"><%= role.name %></span>
-          <% end %>
-        </td>
-        <td><%= user.created_at %></td>
-        <td class="text-right">
-          <a href="<%= edit_admin_user_path(user) %>" class="btn btn-primary btn-sm">
-            <i class="fa fa-pen"></i>
-          </a>
-        </td>
-      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="text-muted">#<%= user.id %></td>
+          <td class="font-weight-bold"><%= user.email %></td>
+          <td>
+            <% user.roles.each do |role| %>
+              <span class="btn btn-tag"><%= role.name %></span>
+            <% end %>
+          </td>
+          <td><%= user.created_at %></td>
+          <td class="text-right">
+            <a href="<%= edit_admin_user_path(user) %>" class="btn btn-primary btn-sm">
+              <i class="fa fa-pen"></i>
+            </a>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%== pagy_nav(@pagy) %>
+
+  <% elsif @users.blank? && params[:q].present? %>
+    <%= render 'pulpo/shared/blankslate', title: 'No users found',
+                                          illustration: 'pulpo/illustrations/search.svg',
+                                          css_class: 'bh-blankslate--narrow mt-5',
+                                          illustration_options: { width: 300 } do %>
+      <%= content_for :description do %>
+        <p class="lead">Please try to modify your search criteria</p>
+      <% end %>
     <% end %>
-  </table>
 
-  <%== pagy_nav(@pagy) %>
+  <% else %>
+    <%= render 'pulpo/shared/blankslate', title: 'No one here yet',
+                                          illustration: 'pulpo/illustrations/search.svg',
+                                          css_class: 'bh-blankslate--narrow mt-5',
+                                          illustration_options: { width: 300 } do %>
+      <%= content_for :description do %>
+        <p class="lead">No users created yet. Use the button above to create a new user.</p>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>

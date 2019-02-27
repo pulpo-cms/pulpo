@@ -1,0 +1,14 @@
+.form-section {
+  &-title {
+    font-size: 1.3rem;
+  }
+
+  &-desc {
+    color: $text-muted;
+  }
+
+  &-separator {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}

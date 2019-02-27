@@ -1,0 +1,27 @@
+// Bootstrap
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+// Uppy
+@import '@uppy/core/dist/style.css';
+@import '@uppy/dashboard/dist/style.css';
+
+// Dragula
+@import 'dragula/dist/dragula.css';
+
+// Pulpo
+@import './variables';
+@import './components/sidebar';
+@import './components/navbar';
+@import './components/page_content';
+@import './components/page_header';
+@import './components/form_section';
+@import './components/card';
+@import './components/button';
+@import './components/nav_grid';
+@import './components/form_errors';
+@import './components/search_form';
+@import './components/blankslate';
+
+@import './shared/body';
+@import './shared/table';
+@import './shared/form';

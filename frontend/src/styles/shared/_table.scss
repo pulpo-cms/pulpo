@@ -1,0 +1,25 @@
+.table {
+  margin-top: 1rem;
+
+  th {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-top: 0;
+    color: $text-muted;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  td {
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+  }
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.02);
+}

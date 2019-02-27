@@ -3,11 +3,11 @@ module Pulpo
     isolate_namespace Pulpo
 
     # sets the manifests / assets to be precompiled, even when initialize_on_precompile is false
-    initializer 'pulpo.assets.precompile', group: :all do |app|
-      app.config.assets.precompile += %w[
-        pulpo/all*
-      ]
-    end
+    # initializer 'pulpo.assets.precompile', group: :all do |app|
+    #   app.config.assets.precompile += %w[
+    #     pulpo/all*
+    #   ]
+    # end
 
     initializer 'pulpo.environment', before: :load_config_initializers do
       Pulpo::Config = Pulpo::AppConfiguration.new

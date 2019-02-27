@@ -1,0 +1,37 @@
+.form-errors {
+  padding-left: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+  }
+
+  &.alert-danger {
+    border-width: 4px 0 0 0;
+    border-radius: 3px;
+
+    &::before {
+      content: "!";
+      position: absolute;
+      top: 1.2rem;
+      left: 1.2rem;
+      background: rgba(#fff, 0.9);
+      width: 25px;
+      height: 25px;
+      line-height: 22px;
+      text-align: center;
+      border-radius: 50%;
+      color: lighten(#721c24, 40%);
+      border: 2px solid lighten(#721c24, 40%);
+      box-shadow: 0 0 0 4px lighten(#721c24, 55%);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+  }
+}

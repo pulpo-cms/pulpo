@@ -1,0 +1,24 @@
+<%= yield %>
+<%
+  illustration_options = local_assigns[:illustration_options] || {}
+  css_class = local_assigns[:css_class] || ''
+%>
+
+
+<div class="bh-blankslate <%= css_class %>">
+  <div class="row align-items-center">
+    <div class="col">
+      <% if local_assigns.key?(:illustration) %>
+        <%= inline_svg illustration, illustration_options.merge(class: 'bh-blankslate-illustration') %>
+      <% end %>
+    </div>
+
+    <div class="bh-blankslate-body col">
+      <% if local_assigns.key?(:title) %>
+        <h2 class="h4"><%= title %></h2>
+      <% end %>
+
+      <%= content_for :description %>
+    </div>
+  </div>
+</div>

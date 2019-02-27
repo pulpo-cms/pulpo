@@ -1,0 +1,12 @@
+.bh-blankslate {
+  &--narrow {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &-illustration {
+    opacity: 0.5;
+    max-width: 100%;
+  }
+}

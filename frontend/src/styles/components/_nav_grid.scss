@@ -1,0 +1,57 @@
+$icon-bg-color: #f9f9f9;
+$icon-bg-color-active: darken($icon-bg-color, 5%);
+$icon-color: darken($icon-bg-color, 50%);
+$base-item-padding: 0.8rem;
+
+.bh-nav-grid {
+  margin: 0 auto;
+
+  .card-body,
+  .card-body .media {
+    padding: $base-item-padding;
+  }
+
+  .media {
+    border-radius: 3px;
+  }
+
+  .card-title {
+    margin-bottom: .1rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $link-color;
+  }
+
+  .card-text {
+    color: $text-muted;
+  }
+
+  &-icon {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: $icon-bg-color;
+    margin-right: 1rem;
+    border-radius: 3px;
+    color: $icon-color;
+    font-weight: 900;
+  }
+
+  a:hover {
+    text-decoration: none;
+
+    .card-body {
+      padding: $base-item-padding;
+    }
+
+    .media {
+      background: #f9f9f9;
+      padding: $base-item-padding;
+    }
+
+    .bh-nav-grid-icon {
+      background: $icon-bg-color-active;
+    }
+  }
+}

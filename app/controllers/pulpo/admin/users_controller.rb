@@ -1,8 +1,6 @@
 module Pulpo
   module Admin
     class UsersController < BaseController
-      include Pagy::Backend
-
       breadcrumb 'Settings', :admin_settings_path
       breadcrumb 'Users', :admin_users_path
       breadcrumb 'Add new', :new_admin_user_path, only: [:new, :create]

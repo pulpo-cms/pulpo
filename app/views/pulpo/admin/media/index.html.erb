@@ -19,44 +19,55 @@
 <% end %>
 
 <div class="bh-page-content">
-  <table class="table table-hover">
-    <thead>
-      <th>Preview</th>
-      <th>
-        <%= sort_link(@q, :filename) %> and <%= sort_link(@q, :byte_size, 'size') %>
-      </th>
-      <th><%= sort_link(@q, :created_at) %></th>
-      <th></th>
-    </thead>
+  <% if @media.any? %>
+    <table class="table table-hover">
+      <thead>
+        <th>Preview</th>
+        <th>
+          <%= sort_link(@q, :filename) %> and <%= sort_link(@q, :byte_size, 'size') %>
+        </th>
+        <th><%= sort_link(@q, :created_at) %></th>
+        <th></th>
+      </thead>
 
-    <% @media.each do |medium| %>
-      <tr>
-        <td>
-          <% if medium.previewable? %>
-            <%= medium.preview(resize_to_limit: [100, 100]) %>
-          <% else %>
-            <%= image_tag main_app.rails_blob_path(medium), size: '100x100', class: 'rounded' %>
-          <% end %>
-        </td>
-        <td class="align-middle">
-          <h5><%= medium.filename %></h5>
-          <p class="text-muted mb-0"><%= number_to_human_size medium.byte_size %></p>
-        </td>
-        <td class="align-middle"><%= medium.created_at %></td>
-        <td class="text-right align-middle">
-          <div class="btn-group">
-            <%= link_to main_app.rails_blob_path(medium, disposition: 'attachment'), class: 'btn btn-outline-secondary btn-sm' do %>
-              <i class="fa fa-download"></i>
+      <% @media.each do |medium| %>
+        <tr>
+          <td>
+            <% if medium.previewable? %>
+              <%= medium.preview(resize_to_limit: [100, 100]) %>
+            <% else %>
+              <%= image_tag main_app.rails_blob_path(medium), size: '100x100', class: 'rounded' %>
             <% end %>
+          </td>
+          <td class="align-middle">
+            <h5><%= medium.filename %></h5>
+            <p class="text-muted mb-0"><%= number_to_human_size medium.byte_size %></p>
+          </td>
+          <td class="align-middle"><%= medium.created_at %></td>
+          <td class="text-right align-middle">
+            <div class="btn-group">
+              <%= link_to main_app.rails_blob_path(medium, disposition: 'attachment'), class: 'btn btn-outline-secondary btn-sm' do %>
+                <i class="fa fa-download"></i>
+              <% end %>
 
-            <%= link_to admin_medium_path(medium), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
-              <i class="fa fa-trash"></i>
-            <% end %>
-          </div>
-        </td>
-      </tr>
+              <%= link_to admin_medium_path(medium), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%== pagy_nav(@pagy) %>
+
+  <% else %>
+    <%= render 'pulpo/shared/blankslate', title: 'Nothing here yet',
+                                          illustration: 'pulpo/illustrations/media.svg',
+                                          css_class: 'mt-2' do %>
+      <%= content_for :description do %>
+        <p class="lead">No media uploaded yet. Use the button above to upload some files.</p>
+      <% end %>
     <% end %>
-  </table>
-
-  <%== pagy_nav(@pagy) %>
+  <% end %>
 </div>

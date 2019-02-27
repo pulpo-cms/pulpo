@@ -1,8 +1,6 @@
 module Pulpo
   module Admin
     class MediaController < BaseController
-      include Pagy::Backend
-
       breadcrumb 'Media', :admin_settings_path
       breadcrumb 'Add new', :new_admin_user_path, only: [:new, :create]
 

@@ -1,0 +1,67 @@
+.bh-page-header {
+  padding: $main-padding 7rem;
+  padding-bottom: 0;
+  background: darken($body-bg, 3%);
+  margin-bottom: 0;
+
+  .breadcrumb {
+    background: transparent;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-bottom: .5rem;
+    letter-spacing: 1px;
+
+    &-item.current:last-child a {
+      color: $link-color;
+    }
+
+    a {
+      color: inherit;
+      color: $text-muted;
+    }
+
+    // Separator
+    &-item+.breadcrumb-item:before {
+      padding-right: 0.3rem;
+    }
+  }
+
+  &-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  &-desc {
+    color: $text-muted;
+  }
+
+  &-tabs {
+    padding-top: 2.5rem;
+    font-size: .9rem;
+
+    .nav-tabs {
+      border-bottom: 0;
+      // font-size: .9rem;
+    }
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-link.active:hover {
+      border-color: transparent;
+      background: $body-bg;
+      color: $text-color;
+    }
+
+    .nav-tabs .nav-link:focus,
+    .nav-tabs .nav-link:hover {
+      border-color: transparent;
+      background: rgba($body-bg, 0.5);
+      color: $text-color;
+    }
+
+    .nav-tabs .nav-link {
+      color: $text-muted;
+    }
+  }
+}

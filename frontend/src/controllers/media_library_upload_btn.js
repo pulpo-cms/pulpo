@@ -12,19 +12,20 @@ class MediaLibraryUploadBtn extends Controller {
 
   initialize () {
     const uppy = Uppy()
-    .use(Dashboard, {
-      trigger: this.triggerTarget,
-      target: this.modalTarget,
-    })
-    uppy.use(ActiveStorageUpload, {
-      directUploadUrl: this.data.get('upload-url')
-    })
+      .use(Dashboard, {
+        trigger: this.triggerTarget,
+        target: this.modalTarget,
+      })
 
-    uppy.on('complete', (result) => {
-      setTimeout(() => {
-        Turbolinks.visit(this.data.get('media-library-path'))
-      }, 1000)
-    })
+      uppy.use(ActiveStorageUpload, {
+        directUploadUrl: this.data.get('upload-url')
+      })
+
+      uppy.on('complete', (result) => {
+        setTimeout(() => {
+          window.location.replace(this.data.get('media-library-path'))
+        }, 1000)
+      })
   }
 }
 
