@@ -78,22 +78,22 @@
     <%== pagy_nav(@pagy) %>
 
   <% elsif @users.blank? && params[:q].present? %>
-    <%== Pulpo::Blankslate.call(title: 'No users found',
-                                illustration: :search,
-                                css_classes: ['mt-5'],
-                                narrow: true,
-                                illustration_options: { width: 300 }) do %>
+    <%== Pulpo::Components::Blankslate.call(title: 'No users found',
+                                            illustration: :search,
+                                            css_classes: ['mt-5'],
+                                            narrow: true,
+                                            illustration_options: { width: 300 }) do %>
       <% capture do %>
         <p class="lead">Please try to modify your search criteria</p>
       <% end %>
     <% end %>
 
   <% else %>
-    <%== Pulpo::Blankslate.call(title: 'No one here yet',
-                                illustration: :search,
-                                css_classes: ['mt-5'],
-                                narrow: true,
-                                illustration_options: { width: 300 }) do %>
+    <%== Pulpo::Components::Blankslate.call(title: 'No one here yet',
+                                            illustration: :search,
+                                            css_classes: ['mt-5'],
+                                            narrow: true,
+                                            illustration_options: { width: 300 }) do %>
       <% capture do %>
         <p class="lead">Please try to modify your search criteria</p>
       <% end %>

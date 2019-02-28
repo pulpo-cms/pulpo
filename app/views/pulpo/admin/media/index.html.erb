@@ -62,9 +62,9 @@
     <%== pagy_nav(@pagy) %>
 
   <% else %>
-    <%== Pulpo::Blankslate.call(title: 'Nothing here yet',
-                                illustration: :media,
-                                css_classes: ['mt-2']) do %>
+    <%== Pulpo::Components::Blankslate.call(title: 'Nothing here yet',
+                                            illustration: :media,
+                                            css_classes: ['mt-2']) do %>
       <% capture do %>
         <p class="lead">No media uploaded yet. Use the button above to upload some files.</p>
       <% end %>

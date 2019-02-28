@@ -7,15 +7,15 @@
 <div class="bh-page-content">
   <%= form_for @general_settings, url: admin_settings_general_path, method: :put do |f| %>
 
-    <%== Pulpo::FormSection.call do %>
+    <%== Pulpo::Components::FormSection.call do %>
       <% capture do %>
-        <%== Pulpo::FormSection::Legend.call(title: 'Website details') do %>
+        <%== Pulpo::Components::FormSection::Legend.call(title: 'Website details') do %>
           <% capture do %>
             <p>Basic details about your website</p>
           <% end %>
         <% end %>
 
-        <%== Pulpo::FormSection::ContentBox.call do %>
+        <%== Pulpo::Components::FormSection::ContentBox.call do %>
           <% capture do %>
             <div class="form-group">
               <%= f.label :site_title %>
@@ -31,7 +31,7 @@
       <% end %>
     <% end %>
 
-    <%== Pulpo::FormSection::Separator.call %>
+    <%== Pulpo::Components::FormSection::Separator.call %>
 
     <%= f.submit 'Save' %>
   <% end %>

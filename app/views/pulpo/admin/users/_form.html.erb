@@ -3,11 +3,11 @@
 <%= form_for @user, url: action, as: :user do |f| %>
   <%= render 'pulpo/shared/form_errors', resource: f.object %>
 
-  <%== Pulpo::FormSection.call do %>
+  <%== Pulpo::Components::FormSection.call do %>
     <% capture do %>
-      <%== Pulpo::FormSection::Legend.call(title: 'Basic details') %>
+      <%== Pulpo::Components::FormSection::Legend.call(title: 'Basic details') %>
 
-      <%== Pulpo::FormSection::ContentBox.call do %>
+      <%== Pulpo::Components::FormSection::ContentBox.call do %>
         <% capture do %>
           <div class="form-group">
             <%= f.label :email %>
@@ -19,13 +19,13 @@
     <% end %>
   <% end %>
 
-  <%== Pulpo::FormSection::Separator.call %>
+  <%== Pulpo::Components::FormSection::Separator.call %>
 
-  <%== Pulpo::FormSection.call do %>
+  <%== Pulpo::Components::FormSection.call do %>
     <% capture do %>
-      <%== Pulpo::FormSection::Legend.call(title: 'Password') %>
+      <%== Pulpo::Components::FormSection::Legend.call(title: 'Password') %>
 
-      <%== Pulpo::FormSection::ContentBox.call do %>
+      <%== Pulpo::Components::FormSection::ContentBox.call do %>
         <% capture do %>
           <div class="row">
             <div class="col">
@@ -60,13 +60,13 @@
     <% end %>
   <% end %>
 
-  <%== Pulpo::FormSection::Separator.call %>
+  <%== Pulpo::Components::FormSection::Separator.call %>
 
-  <%== Pulpo::FormSection.call do %>
+  <%== Pulpo::Components::FormSection.call do %>
     <% capture do %>
-      <%== Pulpo::FormSection::Legend.call(title: 'Roles') %>
+      <%== Pulpo::Components::FormSection::Legend.call(title: 'Roles') %>
 
-      <%== Pulpo::FormSection::ContentBox.call do %>
+      <%== Pulpo::Components::FormSection::ContentBox.call do %>
         <% capture do %>
           <div class="row">
             <%= hidden_field_tag 'user[role_ids][]', '' %>
@@ -85,7 +85,7 @@
     <% end %>
   <% end %>
 
-  <%== Pulpo::FormSection::Separator.call %>
+  <%== Pulpo::Components::FormSection::Separator.call %>
 
   <%= f.submit 'Save' %>
 <% end %>
