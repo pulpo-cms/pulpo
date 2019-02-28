@@ -6,17 +6,17 @@
 
 <div class="bh-page-content">
   <%= form_for @general_settings, url: admin_settings_general_path, method: :put do |f| %>
-    <div class="form-section row">
-      <div class="col-4">
-        <h2 class="form-section-title">Website details</h2>
-        <div class="form-section-desc">
-          <p>Basic details about your website</p>
-        </div>
-      </div>
 
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
+    <%== Pulpo::FormSection.call do %>
+      <% capture do %>
+        <%== Pulpo::FormSection::Legend.call(title: 'Website details') do %>
+          <% capture do %>
+            <p>Basic details about your website</p>
+          <% end %>
+        <% end %>
+
+        <%== Pulpo::FormSection::ContentBox.call do %>
+          <% capture do %>
             <div class="form-group">
               <%= f.label :site_title %>
               <%= f.text_field :site_title, class: 'form-control' %>
@@ -26,12 +26,12 @@
               <%= f.label :site_description %>
               <%= f.text_area :site_description, class: 'form-control' %>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
 
-    <hr class="form-section-separator">
+    <%== Pulpo::FormSection::Separator.call %>
 
     <%= f.submit 'Save' %>
   <% end %>

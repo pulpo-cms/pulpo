@@ -3,34 +3,30 @@
 <%= form_for @user, url: action, as: :user do |f| %>
   <%= render 'pulpo/shared/form_errors', resource: f.object %>
 
-  <div class="form-section row">
-    <div class="col-4">
-      <h2 class="form-section-title">Basic details</h2>
-    </div>
+  <%== Pulpo::FormSection.call do %>
+    <% capture do %>
+      <%== Pulpo::FormSection::Legend.call(title: 'Basic details') %>
 
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
+      <%== Pulpo::FormSection::ContentBox.call do %>
+        <% capture do %>
           <div class="form-group">
             <%= f.label :email %>
             <%= f.email_field :email, class: 'form-control' %>
             <small class="form-text text-muted">Used for sign-in and for sending notifications</small>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
 
-  <hr class="form-section-separator">
+  <%== Pulpo::FormSection::Separator.call %>
 
-  <div class="form-section row">
-    <div class="col-4">
-      <h2 class="form-section-title">Password</h2>
-    </div>
+  <%== Pulpo::FormSection.call do %>
+    <% capture do %>
+      <%== Pulpo::FormSection::Legend.call(title: 'Password') %>
 
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
+      <%== Pulpo::FormSection::ContentBox.call do %>
+        <% capture do %>
           <div class="row">
             <div class="col">
               <div class="form-group mb-0">
@@ -59,21 +55,19 @@
               <label for="user_send_password_instructions" class="form-check-label">Send e-mail message with password to this user</label>
             </div>
           <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
 
-  <hr class="form-section-separator">
+  <%== Pulpo::FormSection::Separator.call %>
 
-  <div class="form-section row">
-    <div class="col-4">
-      <h2 class="form-section-title">Roles</h2>
-    </div>
+  <%== Pulpo::FormSection.call do %>
+    <% capture do %>
+      <%== Pulpo::FormSection::Legend.call(title: 'Roles') %>
 
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
+      <%== Pulpo::FormSection::ContentBox.call do %>
+        <% capture do %>
           <div class="row">
             <%= hidden_field_tag 'user[role_ids][]', '' %>
 
@@ -86,12 +80,12 @@
               </div>
             <% end %>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
 
-  <hr class="form-section-separator">
+  <%== Pulpo::FormSection::Separator.call %>
 
   <%= f.submit 'Save' %>
 <% end %>

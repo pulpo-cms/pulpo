@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "deface", "1.3.2"
   s.add_dependency "active_link_to", "1.0.5"
   s.add_dependency "inline_svg", "1.3.1"
+  s.add_dependency "rack-component", "0.5.0"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"

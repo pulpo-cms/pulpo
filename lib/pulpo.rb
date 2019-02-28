@@ -11,6 +11,7 @@ require 'draper'
 require 'deface'
 require 'active_link_to'
 require 'inline_svg'
+require 'rack/component'
 
 module Pulpo
   class << self

@@ -78,22 +78,24 @@
     <%== pagy_nav(@pagy) %>
 
   <% elsif @users.blank? && params[:q].present? %>
-    <%= render 'pulpo/shared/blankslate', title: 'No users found',
-                                          illustration: 'pulpo/illustrations/search.svg',
-                                          css_class: 'bh-blankslate--narrow mt-5',
-                                          illustration_options: { width: 300 } do %>
-      <%= content_for :description do %>
+    <%== Pulpo::Blankslate.call(title: 'No users found',
+                                illustration: :search,
+                                css_classes: ['mt-5'],
+                                narrow: true,
+                                illustration_options: { width: 300 }) do %>
+      <% capture do %>
         <p class="lead">Please try to modify your search criteria</p>
       <% end %>
     <% end %>
 
   <% else %>
-    <%= render 'pulpo/shared/blankslate', title: 'No one here yet',
-                                          illustration: 'pulpo/illustrations/search.svg',
-                                          css_class: 'bh-blankslate--narrow mt-5',
-                                          illustration_options: { width: 300 } do %>
-      <%= content_for :description do %>
-        <p class="lead">No users created yet. Use the button above to create a new user.</p>
+    <%== Pulpo::Blankslate.call(title: 'No one here yet',
+                                illustration: :search,
+                                css_classes: ['mt-5'],
+                                narrow: true,
+                                illustration_options: { width: 300 }) do %>
+      <% capture do %>
+        <p class="lead">Please try to modify your search criteria</p>
       <% end %>
     <% end %>
   <% end %>
