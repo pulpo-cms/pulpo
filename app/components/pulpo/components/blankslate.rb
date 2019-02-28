@@ -8,13 +8,17 @@ module Pulpo
       #   illustration svg file
       # @param css_classes [Array] Array of classes
       # @param narrow [Boolean] Is this blankslate narrow?
-      # @param illustration_options [Hash] Additional illustration options
+      # @param inline_svg_options [Hash] inline_svg arguments
       def call
         super
       end
 
-      def illustration_options
-        env[:illustration_options] || {}
+      def title
+        env[:title] || ''
+      end
+
+      def inline_svg_options
+        env[:inline_svg_options] || {}
       end
 
       def css_classes
@@ -34,17 +38,6 @@ module Pulpo
         else
           ill
         end
-      end
-
-      def title
-        env[:title] || ''
-      end
-
-      def illustration_html
-        inline_svg(
-          illustration,
-          illustration_options.merge(class: 'bh-blankslate-illustration')
-        )
       end
 
       render do |&child|
@@ -67,6 +60,15 @@ module Pulpo
             </div>
           </div>
         HTML
+      end
+
+      private
+
+      def illustration_html
+        inline_svg(
+          illustration,
+          inline_svg_options.merge(class: 'bh-blankslate-illustration')
+        )
       end
     end
   end
