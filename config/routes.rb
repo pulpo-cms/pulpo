@@ -1,4 +1,4 @@
-Pulpo::Engine.add_routes do
+::Pulpo::Engine.add_routes do
   devise_for :users, path: :auth, class_name: 'Pulpo::User', module: :devise
 
   namespace :admin, path: Pulpo.admin_path do
@@ -22,4 +22,4 @@ Pulpo::Engine.add_routes do
   end
 end
 
-Pulpo::Engine.draw_routes
+::Pulpo::Engine.draw_routes
