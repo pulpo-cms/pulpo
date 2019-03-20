@@ -19,14 +19,14 @@ module Pulpo
     def initialize(attrs = {})
       loaded =
         SETTING_KEYS.each_with_object({}) do |key, hsh|
-          hsh[key] = Pulpo::Config[key]
+          hsh[key] = ::Pulpo::Config[key]
         end
 
       assign_attributes(loaded.merge(attrs))
     end
 
     def save
-      SETTING_KEYS.each { |key| Pulpo::Config[key] = send(key) }
+      SETTING_KEYS.each { |key| ::Pulpo::Config[key] = send(key) }
     end
   end
 end
