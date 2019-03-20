@@ -34,7 +34,7 @@ module Pulpo
     end
 
     def eval_block(&block)
-      Pulpo::Engine.routes.send :eval_block, block
+      ::Pulpo::Engine.routes.send :eval_block, block
     end
   end
 end
