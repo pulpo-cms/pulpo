@@ -3,7 +3,13 @@ import { DirectUpload } from "@rails/activestorage"
 import Api from '../lib/api'
 
 export default class extends Controller {
-  static targets = ['input', 'progress', 'uploaded', 'uploadedImg']
+  static targets = [
+    'inputContainer',
+    'input',
+    'progress',
+    'uploaded',
+    'uploadedImg'
+  ]
 
   connect () {
     if (this.isAttached) {
@@ -52,9 +58,9 @@ export default class extends Controller {
     this._isEmpty = value
 
     if (value) {
-      this.inputTarget.classList.remove('d-none')
+      this.inputContainerTarget.classList.remove('d-none')
     } else {
-      this.inputTarget.classList.add('d-none')
+      this.inputContainerTarget.classList.add('d-none')
     }
   }
 

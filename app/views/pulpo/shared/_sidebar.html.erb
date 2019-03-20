@@ -5,14 +5,14 @@
 </div>
 
 <ul class="nav flex-column" data-hook="admin_sidebar_menu_links">
-  <%= sidebar_nav_item 'Dashboard', admin_root_path, icon: 'home',
+  <%= sidebar_nav_item t(:dashboard), admin_root_path, icon: 'home',
                                                      active: :exclusive,
                                                      data_hook: 'admin_sidebar_dashboard' %>
 
-  <%= sidebar_nav_item 'Media', admin_media_path, icon: 'image', active: :exclusive %>
+  <%= sidebar_nav_item t(:media), admin_media_path, icon: 'image', active: :exclusive %>
 
-  <%= sidebar_nav_item 'Settings', admin_settings_path, icon: 'cog' do %>
-    <%= sidebar_nav_item 'General', edit_admin_settings_general_path, text_icon: 'gl' %>
-    <%= sidebar_nav_item 'Users', admin_users_path, text_icon: 'u' %>
+  <%= sidebar_nav_item t(:settings), admin_settings_path, icon: 'cog' do %>
+    <%= sidebar_nav_item t(:general), edit_admin_settings_general_path, text_icon: 'gl' %>
+    <%= sidebar_nav_item t(:users), admin_users_path, text_icon: 'u' %>
   <% end %>
 </ul>

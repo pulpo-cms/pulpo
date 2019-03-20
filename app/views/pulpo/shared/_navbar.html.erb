@@ -3,7 +3,7 @@
     <li class="nav-item dropdown bh-navbar-user-menu">
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.decorate %></a>
 
-      <div class="dropdown-menu dropdown-menu-right">
+      <div class="dropdown-menu dropdown-menu-right absolute">
         <%= link_to 'Sign-out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </div>
     </li>

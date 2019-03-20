@@ -10,6 +10,7 @@
 
 // Pulpo
 @import './variables';
+@import './utilities';
 @import './components/sidebar';
 @import './components/navbar';
 @import './components/page_content';
@@ -25,3 +26,4 @@
 @import './shared/body';
 @import './shared/table';
 @import './shared/form';
+@import './shared/image';

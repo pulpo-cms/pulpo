@@ -20,6 +20,11 @@ module Pulpo
 
     config.to_prepare do
       Devise::SessionsController.layout 'pulpo/devise'
+
+      # Load application's model / class decorators
+      Dir.glob(File.join(File.dirname(__FILE__), '../../../app/**/*_patch*.rb')) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
     end
   end
 end
