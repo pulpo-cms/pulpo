@@ -6,6 +6,11 @@ module Pulpo
     SETTING_KEYS = %i[
       site_title
       site_description
+      phone
+      email
+      address
+      instagram
+      facebook
     ].freeze
 
     # Generate accessors for all the setting keys

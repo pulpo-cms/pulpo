@@ -25,7 +25,8 @@ module Pulpo
         private
 
         def general_settings_params
-          params.require(:general_settings_form).permit(:site_title)
+          params.require(:general_settings_form)
+                .permit(*Pulpo::Config.defined_preferences)
         end
       end
     end
